@@ -24,10 +24,16 @@
         </div>
       </nav>
       <div class="container">
-        <% if(title){ %>
+        <% if(title == "List Users"){ %>
         <div class="row mb-3">
           <div class="col-12">
             <h1><%= title %></h1>
+            <a href="/users/add-new-user" type="button" class="btn btn-success btn-sm">add</a>
           </div>
         </div>
+        <% }else if(title !== "List Users"){ %>
+          <div class="row mb-3">
+            <div class="col-12">
+              <h1><%= title %></h1>
+          </div>
         <% } %>

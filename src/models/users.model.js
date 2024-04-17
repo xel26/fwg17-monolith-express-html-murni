@@ -34,3 +34,10 @@ exports.deleteUser = async(id)=>{
     const {rows} = await db.query(sql, values)
     return rows[0]
 }
+
+exports.addUser = async({full_name, email, password})=>{
+    const sql = `INSERT INTO users("full_name", "email", "password") VALUES ($1, $2, $3)`
+    const values = [full_name, email, password]
+    const {rows} = await db.query(sql, values)
+    return rows[0]
+}

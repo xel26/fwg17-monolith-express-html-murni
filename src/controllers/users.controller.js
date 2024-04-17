@@ -25,3 +25,9 @@ exports.deleteUser = async (req, res)=>{
         results: deleted
     })
 }
+
+exports.addUser = async (req, res)=>{
+    await userModel.addUser(req.body)
+    console.log(req.body)
+    return res.redirect("/users")
+}
