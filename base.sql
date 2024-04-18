@@ -7,3 +7,8 @@ CREATE TABLE "users"(
     "created_at" TIMESTAMP DEFAULT NOW(),
     "updated_at" TIMESTAMP
 );
+
+INSERT INTO "users"("full_name", "email", "password")
+VALUES
+('admin', 'admin@example.com', 'admin'),
+('shella', 'shella@example.com', '123')

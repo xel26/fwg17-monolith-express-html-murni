@@ -8,7 +8,7 @@ exports.findAllUsers = async()=>{
 }
 
 exports.findOneUser = async(id)=>{
-    const sql = `SELECT * FROM users WHERE id=$1`
+    const sql = `SELECT * FROM users WHERE id = $1`
     const values = [id]
     const {rows} = await db.query(sql, values)
     return rows[0]
@@ -36,7 +36,7 @@ exports.deleteUser = async(id)=>{
 }
 
 exports.addUser = async({full_name, email, password})=>{
-    const sql = `INSERT INTO users("full_name", "email", "password") VALUES ($1, $2, $3)`
+    const sql = `INSERT INTO "users"("full_name", "email", "password") VALUES ($1, $2, $3) RETURNING *`
     const values = [full_name, email, password]
     const {rows} = await db.query(sql, values)
     return rows[0]
